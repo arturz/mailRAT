@@ -95,7 +95,7 @@ chmod 710 /etc/fetchmailparser.sh
 
 # configure crontab
 
-crontab -u $CONSOLE_USER -l | grep -v /etc/fetchmailrc | > /tmp/cronjobs.txt
+crontab -u $CONSOLE_USER -l | grep -v /etc/fetchmailrc > /tmp/cronjobs.txt
 echo "* * * * * fetchmail -f /etc/fetchmailrc &> /dev/null" >> /tmp/cronjobs.txt
 crontab -u $CONSOLE_USER /tmp/cronjobs.txt
 rm /tmp/cronjobs.txt
